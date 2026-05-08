@@ -1,0 +1,46 @@
+
+.venv/
+venv/
+env/
+ENV/
+
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Data files (uncomment if you don't want to track datasets)
+# data/*.csv
+# data/*.json
+# data/*.xlsx
+# *.csv
+
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+.DS_Store
+Thumbs.db
+
+*.pkl
+*.h5
+*.model
+
+*.log
+
+dist/
+build/
+*.egg-info/
+
+.pytest_cache/
+.coverage
+htmlcov/
+
+.env

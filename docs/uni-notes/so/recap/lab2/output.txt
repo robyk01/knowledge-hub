@@ -1,0 +1,4 @@
+Roberto          -zsh              8004 ttys005 
+Roberto          -zsh              7693 ttys000 
+Roberto          -zsh              7528 ttys002 
+Roberto          /bin/zsh           810 ttys001 

@@ -1,0 +1,9 @@
+USER     TTY      FROM              LOGIN@  IDLE WHAT
+user1    ttys001  192.168.1.100     10:30    5:20 -zsh
+user2    ttys002  192.168.1.101     11:15    2:10 -zsh
+user3    ttys003  192.168.1.102     12:00    1:05 -zsh
+user4    ttys004  10.0.0.50         08:45    8:30 -zsh
+user5    ttys005  10.0.0.51         09:20    7:15 -zsh
+user6    ttys006  172.16.0.1        11:00    3:00 -zsh
+user7    ttys007  172.16.0.2        13:30    0:45 -zsh
+user8    ttys008  192.168.2.200     14:00    0:15 -zsh
