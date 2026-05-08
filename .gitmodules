@@ -1,0 +1,6 @@
+[submodule "uni-notes"]
+	path = uni-notes
+	url = https://github.com/robyk01/uni-notes.git
+[submodule "data-science-and-ml"]
+	path = data-science-and-ml
+	url = https://github.com/robyk01/data-science-and-ml.git
