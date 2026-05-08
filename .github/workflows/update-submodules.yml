@@ -33,5 +33,5 @@ jobs:
 
       - name: Build and deploy
         run: |
-          pip install mkdocs mkdocs-material mkdocs-gen-files mkdocs-literate-nav
+          pip install mkdocs mkdocs-material mkdocs-gen-files mkdocs-literate-nav mkdocs-section-index
           mkdocs gh-deploy --force
