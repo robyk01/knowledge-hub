@@ -7,6 +7,11 @@ on:
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+  DISABLE_MKDOCS_2_WARNING: true
+
+permissions:
+  contents: write
+  pages: write
 
 jobs:
   update:
@@ -16,6 +21,12 @@ jobs:
         with:
           fetch-depth: 0
           submodules: recursive
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
 
       - name: Update submodules
         run: |
@@ -33,5 +44,5 @@ jobs:
 
       - name: Build and deploy
         run: |
-          pip install mkdocs mkdocs-material mkdocs-gen-files mkdocs-literate-nav mkdocs-section-index
+          pip install -r requirements.txt
           mkdocs gh-deploy --force

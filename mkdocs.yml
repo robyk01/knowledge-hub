@@ -1,48 +1,44 @@
-name: Update Submodules
+site_name: Knowledge Hub
+theme:
+  name: material
+  palette:
+    - scheme: slate  
+      primary: indigo
+      accent: cyan
+  features:
+    - navigation.tabs
+    - navigation.top
+    - search.suggest
+    - search.highlight
 
-on:
-  schedule:
-    - cron: '0 0 * * 0'  
-  workflow_dispatch:
+markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.superfences
+  - pymdownx.details
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - attr_list
+  - pymdownx.snippets:
+      base_path: ["docs"]
 
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-  DISABLE_MKDOCS_2_WARNING: true
+extra_javascript:
+  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML
 
-permissions:
-  contents: write
-  pages: write
+plugins:
+  - search
+  - gen-files:
+      scripts:
+        - gen_code_pages.py
+  - literate-nav:
+      nav_file: SUMMARY.md
+  - section-index
 
-jobs:
-  update:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          submodules: recursive
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.12'
-
-      - name: Update submodules
-        run: |
-          git config --global user.email "action@github.com"
-          git config --global user.name "GitHub Action"
-          git submodule update --remote --merge
-
-      - name: Commit changes
-        run: |
-          if [[ -n $(git status -s) ]]; then
-            git add -A
-            git commit -m "chore: update submodules"
-            git push origin main
-          fi
-
-      - name: Build and deploy
-        run: |
-          pip install -r requirements.txt
-          mkdocs gh-deploy --force
+nav:
+  - Home: index.md
+  - Library:
+      - Algorithms & Programming: uni-notes/pa/
+      - Probability & Statistics: uni-notes/ps/
+      - Systems & Networking: uni-notes/rc/
+      - Operating Systems: uni-notes/so/
+      - Data Structures: uni-notes/alo/
